@@ -1,4 +1,5 @@
 import React from 'react';
+import StarIcon from '@material-ui/icons/Star';
 
 interface TaskProps {                                                                           
     id :  string,                                                                               //
@@ -8,40 +9,34 @@ interface TaskProps {
     onPinTask : (id:string) => void                                                             //
 }
 
-export const Task = ({
-  id = '1',
-  title = 'Test Task',
-  state = 'TEST_TASK',
-  ...props
-}: TaskProps) => {                                                                              //  Lo que renderizará 
+export const Task = ({id, title, state, onArchiveTask, onPinTask}: TaskProps) => {                                                                              //  Lo que renderizará 
     return (
-        <div className={`list-item ${state}`}>
-          <label className="checkbox">
-            <input
-              type="checkbox"
-              defaultChecked={state === 'TASK_ARCHIVED'}
-              disabled={true}
-              name="checked"
-            />
-            <span className="checkbox-custom" onClick={() => onArchiveTask(id)} />
-          </label>
-          <div className="title">
-            <input 
-              type="text" 
-              value={title} 
-              readOnly={true} 
-              placeholder="Input title"
-              style={{ textOverflow: 'ellipsis' }} />
+          <div className={`list-item ${state}`}>
+            <label className="checkbox">
+              <input
+                type="checkbox"
+                defaultChecked={state === 'TASK_ARCHIVED'}
+                disabled={true}
+                name="checked"
+              />
+              <span className="checkbox-custom" onClick={() => onArchiveTask(id)} />
+            </label>
+            <div className="title">
+              <input 
+                type="text" 
+                value={title} 
+                readOnly={true} 
+                placeholder="Input title"
+                style={{ textOverflow: 'ellipsis' }} />
+            </div>
+            <div className="actions" onClick={event => event.stopPropagation()}>
+              {state !== 'TASK_ARCHIVED' && (
+                <a onClick={() => onPinTask(id)}>
+                  <StarIcon/>
+                </a>
+              )}
+            </div>
           </div>
-    
-          <div className="actions" onClick={event => event.stopPropagation()}>
-            {state !== 'TASK_ARCHIVED' && (
-              <a onClick={() => onPinTask(id)}>
-                <span className={`icon-star`} />
-              </a>
-            )}
-          </div>
-        </div>
       );
 };
 

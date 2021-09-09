@@ -5,7 +5,7 @@ import { Task } from './Task';
 
 export default {
     title: 'MyApp/Task',                         // Nombre de la ruta (url)
-    component: Task                           // Nombre del archivo del componente referido
+    component: Task                             // Nombre del archivo del componente referido
   } as ComponentMeta<typeof Task>;
 
 const Template: ComponentStory<typeof Task> = (args) => <Task {...args} />;
@@ -17,12 +17,14 @@ Default.args = {
     state: 'TASK_INBOX'
 };
 
-export const Pinned = Template.bind({});      // Asume las props de Default y sobrescribe las que indicamos
+export const Pinned = Template.bind({});      
 Pinned.args = {
+    ...Default.args,                            // '...' Copia la descripción de otra template
     state: 'TASK_PINNED',
 };
 
 export const Archieved = Template.bind({});
 Archieved.args = {
-    state: 'TASK_PINNED',
+    ...Default.args,
+    state: 'TASK_ARCHIEVED',
 };
