@@ -26,5 +26,5 @@ Pinned.args = {
 export const Archieved = Template.bind({});
 Archieved.args = {
     ...Default.args,
-    state: 'TASK_ARCHIEVED',
+    state: 'TASK_ARCHIVED',
 };
