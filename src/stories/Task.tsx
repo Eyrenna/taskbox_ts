@@ -1,5 +1,6 @@
 import React from 'react';
 import StarIcon from '@material-ui/icons/Star';
+import { Box, Checkbox, Grid, Paper, Typography } from '@material-ui/core';
 
 interface TaskProps {                                                                           
     id :  string,                                                                               //
@@ -11,40 +12,31 @@ interface TaskProps {
 
 export const Task = ({id, title, state, onArchiveTask, onPinTask}: TaskProps) => {                                                                              //  Lo que renderizará 
     return (
-          <div className={`list-item ${state}`}>
-            <label className="checkbox">
-              <input
-                type="checkbox"
-                defaultChecked={state === 'TASK_ARCHIVED'}
+      <Paper>
+          <Grid container className={`list-item ${state}`} direction="row" alignItems="baseline">
+            <Grid item>
+              <Checkbox
+                checked={state === 'TASK_ARCHIVED'}
                 disabled={true}
-                name="checked"
+                name="isChecked"
               />
+            </Grid>
+            <Grid item>
               <span className="checkbox-custom" onClick={() => onArchiveTask(id)} />
-            </label>
-            <div className="title">
-              <input 
-                type="text" 
-                value={title} 
-                readOnly={true} 
-                placeholder="Input title"
-                style={{ textOverflow: 'ellipsis' }} />
-            </div>
-            <div className="actions" onClick={event => event.stopPropagation()}>
+              <Typography>
+                  {title} 
+              </Typography>
+            </Grid>
+            <Grid item onClick={event => event.stopPropagation()}>
               {state !== 'TASK_ARCHIVED' && (
                 <a onClick={() => onPinTask(id)}>
                   <StarIcon/>
                 </a>
               )}
-            </div>
-          </div>
+            </Grid>
+          </Grid>
+      </Paper>
       );
 };
 
-function onArchiveTask(id: string): void {
-  throw new Error('Function not implemented.');
-}
-
-
-function onPinTask(id: string): void {
-  throw new Error('Function not implemented.');
-}
+export default Task;
