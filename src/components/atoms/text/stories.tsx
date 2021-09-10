@@ -1,4 +1,4 @@
-import { Text } from "./text";
+import { Text } from "./Text";
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 export default {
