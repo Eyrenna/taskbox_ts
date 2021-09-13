@@ -10,4 +10,5 @@ export const Check = ({checked} : CheckProps) => React.createElement(
         name : 'archived',
         disabled : true, 
         checked : checked
-});
+    }
+);

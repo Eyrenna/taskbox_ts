@@ -9,4 +9,5 @@ export const Text = ({value} : TextProps) => React.createElement (
         type : 'text',
         value : value,
         onlyRead : true
-    });
+    }
+);
