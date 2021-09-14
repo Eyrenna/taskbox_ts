@@ -1,6 +1,19 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+```
+npx create-react-app taskbook_ts --template typescript --use-npm
+npm install @material-ui/core
+npm install @material-ui/icons
+npm install @material-ui/styles
+npm install storybook-addon-material-ui
+npx sb init
+npx install stroybook 
+npx add storybook/react  
+npm install react-icons --save
+npm add styled-components
+npm install styled-components
+```
 
 ## Available Scripts
 
