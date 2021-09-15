@@ -9,21 +9,21 @@ export default {
 
 const Template: ComponentStory<typeof Task> = (args) => <Task {...args} />;
 
-export const defaultTask = Template.bind({});
-defaultTask.args = {
+export const DefaultTask = Template.bind({});
+DefaultTask.args = {
     checked : false,
     value: 'To do Task',
     icon : FaRegStar
 }
 
-export const priorityTask = Template.bind({});
-priorityTask.args = {
-    ...defaultTask.args,
+export const PriorityTask = Template.bind({});
+PriorityTask.args = {
+    ...DefaultTask.args,
     icon : FaStar
 }
 
-export const checkedTask = Template.bind({});
-checkedTask.args = {
-    ...defaultTask.args,
+export const CheckedTask = Template.bind({});
+CheckedTask.args = {
+    ...DefaultTask.args,
     checked : true
 }
