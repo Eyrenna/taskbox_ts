@@ -6,5 +6,7 @@ interface IconClickProps {
 }
 
 export const Icon = ({icon} : IconClickProps) => React.createElement (
-    icon
+    icon, {
+        onClick : () => {}
+    }
 ); 

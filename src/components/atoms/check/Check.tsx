@@ -5,11 +5,12 @@ interface CheckProps {   //Interface REQUIRED --> we can declare handle 'control
     checked : boolean
 }
 
-export const Check = ({checked} : CheckProps) => React.createElement(
+export const Check = ({checked} : CheckProps) => React.createElement(   // createElement (element, attributes, content/children)
     StyledCheck ,{
         type : 'checkbox',
         name : 'archived',
-        disabled : true, 
-        checked : checked
+        disabled : false, 
+        checked : checked,
+        onClick : () => {}
     }
 );

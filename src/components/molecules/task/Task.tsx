@@ -1,29 +1,27 @@
 import React from 'react'
-import { IconType } from 'react-icons';
+import { StyledStarFill, StyledStarReg } from '../../../styles/StyledIcon';
 import { Check } from '../../atoms/check/Check';
-import { Icon } from '../../atoms/icon/Icon';
 import { Text } from '../../atoms/text/Text';
 
 interface TaskProps {
-    checked : boolean,
-    value : string,
-    icon : IconType
+    id : string,
+    title : string,
+    state: string
 }
 
-export const Task = ({checked, value, icon} : TaskProps) => 
+export const Task = ({id, title, state} : TaskProps) => 
 React.createElement ( 'div', null,
-    React.createElement (
-        Check, {checked:checked}
-    ),
-    React.createElement(
-        Text, {value:value}
-    ), 
-    !checked? 
-        React.createElement (
-            'a', null,
+    state == 'TASK_ARCHIVED'?
+        React.createElement ( Check, { checked : true } ) : React.createElement  (Check, { checked : false } ),
+    React.createElement( Text, { value : title } ), 
+    state != 'TASK_ARCHIVED'?
+        state == 'TASK_PINNED'?
             React.createElement (
-                Icon, {icon : icon}
-            )
-        ) 
+                    StyledStarFill
+            ) 
+        :   
+        React.createElement (
+            StyledStarReg
+    ) 
     : null
 ); 

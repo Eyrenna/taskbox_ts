@@ -1,6 +1,5 @@
 import { Task } from './Task';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { FaRegStar, FaStar } from 'react-icons/fa';
 
 export default {
     title: "Molecules/Task",
@@ -11,19 +10,19 @@ const Template: ComponentStory<typeof Task> = (args) => <Task {...args} />;
 
 export const DefaultTask = Template.bind({});
 DefaultTask.args = {
-    checked : false,
-    value: 'To do Task',
-    icon : FaRegStar
+    id : '1',
+    title : 'Task to do',
+    state: 'TASK_TO_DO'
 }
 
-export const PriorityTask = Template.bind({});
-PriorityTask.args = {
+export const PinnedTask = Template.bind({});
+PinnedTask.args = {
     ...DefaultTask.args,
-    icon : FaStar
+    state : 'TASK_PINNED'
 }
 
-export const CheckedTask = Template.bind({});
-CheckedTask.args = {
+export const ArchivedTask = Template.bind({});
+ArchivedTask.args = {
     ...DefaultTask.args,
-    checked : true
+    state :  'TASK_ARCHIVED'
 }
