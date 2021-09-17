@@ -9,5 +9,5 @@ interface CheckProps {
 export const Check : FC<CheckProps> = ({checked}) => 
     <CheckLabel>
         <StyledCheck checked={checked} />
-        <CheckSpan/>
+        <CheckSpan />
     </CheckLabel>
