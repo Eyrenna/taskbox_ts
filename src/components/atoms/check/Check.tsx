@@ -1,16 +1,13 @@
-import React from 'react'
-import { StyledCheck } from '../../../styles/StyledCheck';
+import { FC } from 'react'
+import { CheckLabel, CheckSpan, StyledCheck } from '../../../styles/StyledCheck';
 
-interface CheckProps {   //Interface REQUIRED --> we can declare handle 'controls' (Storybook)
+interface CheckProps {
     checked : boolean
+    onChange? : void // Requerido -> porque sino entiende que el check es inmutable (read-only)
 }
 
-export const Check = ({checked} : CheckProps) => React.createElement(   // createElement (element, attributes, content/children)
-    StyledCheck ,{
-        type : 'checkbox',
-        name : 'archived',
-        disabled : false, 
-        checked : checked,
-        onClick : () => {}
-    }
-);
+export const Check : FC<CheckProps> = ({checked}) => 
+    <CheckLabel>
+        <StyledCheck checked={checked} />
+        <CheckSpan/>
+    </CheckLabel>

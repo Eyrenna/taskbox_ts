@@ -19,5 +19,10 @@ const Template: ComponentStory<typeof Check> = (args) => <Check {...args} />;
 
 export const Archived = Template.bind({});
 Archived.args = {
-    checked : false               // Here we can inizialize an arg
+    checked : true               // Here we can inizialize an arg
+}
+
+export const To_do = Template.bind({});
+To_do.args = {
+    checked : false
 }
