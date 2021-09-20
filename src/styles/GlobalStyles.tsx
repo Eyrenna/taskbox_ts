@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-
 const GlobalStyle = createGlobalStyle`
     html { 
         font-size: 100%;
@@ -30,8 +29,8 @@ const GlobalStyle = createGlobalStyle`
         line-height: normal;
         *overflow: visible;
         :-webkit-autofill {
-        -webkit-box-shadow: 0 0 0 1000px white inset;
- }
+        box-shadow: 0 0 0 1000px white inset;
+        }
     }
     html, body {
         margin: 0;
@@ -46,7 +45,7 @@ const GlobalStyle = createGlobalStyle`
         font-size: 1.2rem;
         line-height: 1.8rem;
         box-shadow: none;
-        color: red;
+        color: #2cc5d2;
         margin-top: -1px;
         font-family: 'percolate';
         font-style: normal;
@@ -58,21 +57,13 @@ const GlobalStyle = createGlobalStyle`
         -moz-osx-font-smoothing: grayscale;
         content: "\e65e";
     }
-    input[type="checkbox"]:checked input[type="text"] { /* It is not working */
-        color: #ccc;
-        text-decoration: line-through;
-    }
-    div[className=='TASK_ARCHIVED'] input[type="text"] {  /* It is not working */
-        color: #aaa;
-    }
-
     @font-face {
         font-family: "percolate";
-        src: url("../../../assets/icon/percolate.eot?-5w3um4");
-        src: url("../../../assets/icon/percolate.eot?#iefix5w3um4") format("embedded-opentype"),
-            url("../../../assets/icon/percolate.woff?5w3um4") format("woff"),
-            url("../../../assets/icon/percolate.ttf?5w3um4") format("truetype"),
-            url("../../../assets/icon/percolate.svg?5w3um4") format("svg");
+        src: url("../assets/icon/percolate.eot?-5w3um4");
+        src: url("../assets/icon/percolate.eot?#iefix5w3um4") format("embedded-opentype"),
+            url("../assets/icon/percolate.woff?5w3um4") format("woff"),
+            url("../assets/icon/percolate.ttf?5w3um4") format("truetype"),
+            url("../assets/icon/percolate.svg?5w3um4") format("svg");
         font-weight: normal;
         font-style: normal;
     }
@@ -94,7 +85,7 @@ const GlobalStyle = createGlobalStyle`
         font-style: normal;
         font-weight: 800;
         src: url(https://fonts.gstatic.com/s/nunitosans/v6/pe03MImSLYBIv1o4X1M8cc8aBc5tU1Q.ttf) format('truetype');
-    }
+    } 
     
 `
 
