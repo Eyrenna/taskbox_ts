@@ -1,6 +1,8 @@
-import React from 'react'
-import { StyledStarFill, StyledStarReg } from '../../../styles/StyledIcon';
+import { FC } from 'react'
+import GlobalStyle from '../../../styles/GlobalStyles';
+import { StyledTaskItem } from '../../../styles/StyledTaskItem';
 import { Check } from '../../atoms/check/Check';
+import { Star } from '../../atoms/star/Star';
 import { Text } from '../../atoms/text/Text';
 
 interface TaskProps {
@@ -9,19 +11,18 @@ interface TaskProps {
     state: string
 }
 
-export const Task = ({id, title, state} : TaskProps) => 
-React.createElement ( 'div', null,
-    state == 'TASK_ARCHIVED'?
-        React.createElement ( Check, { checked : true } ) : React.createElement  (Check, { checked : false } ),
-    React.createElement( Text, { value : title } ), 
-    state != 'TASK_ARCHIVED'?
-        state == 'TASK_PINNED'?
-            React.createElement (
-                    StyledStarFill
-            ) 
-        :   
-        React.createElement (
-            StyledStarReg
-    ) 
-    : null
-); 
+export const Task : FC<TaskProps> = ({id, title, state}) => 
+    <>
+    <GlobalStyle />
+    <StyledTaskItem state={state}>
+
+        <Check checked={(state === 'TASK_ARCHIVED')} />
+
+        <Text value={title}></Text>
+
+        <Star></Star>
+
+    </StyledTaskItem>
+    </>
+    
+;
