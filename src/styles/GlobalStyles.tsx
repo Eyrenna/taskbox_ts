@@ -29,17 +29,20 @@ const GlobalStyle = createGlobalStyle`
         *vertical-align: middle;
         line-height: normal;
         *overflow: visible;
+        :-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 1000px white inset;
+ }
     }
     html, body {
         margin: 0;
         padding: 0;
     }
-    html, input {
+    html, input {                 /* Checkbox , Text */
         outline: none;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
-    input[type="checkbox"]:checked + span:before {
+    input[type="checkbox"]:checked + span:before {   /* Span-Checkbox when is checked*/
         font-size: 1.2rem;
         line-height: 1.8rem;
         box-shadow: none;
@@ -54,6 +57,24 @@ const GlobalStyle = createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         content: "\e65e";
+    }
+    input[type="checkbox"]:checked input[type="text"] { /* It is not working */
+        color: #ccc;
+        text-decoration: line-through;
+    }
+    div[className=='TASK_ARCHIVED'] input[type="text"] {  /* It is not working */
+        color: #aaa;
+    }
+
+    @font-face {
+        font-family: "percolate";
+        src: url("../../../assets/icon/percolate.eot?-5w3um4");
+        src: url("../../../assets/icon/percolate.eot?#iefix5w3um4") format("embedded-opentype"),
+            url("../../../assets/icon/percolate.woff?5w3um4") format("woff"),
+            url("../../../assets/icon/percolate.ttf?5w3um4") format("truetype"),
+            url("../../../assets/icon/percolate.svg?5w3um4") format("svg");
+        font-weight: normal;
+        font-style: normal;
     }
 
     @font-face {
@@ -74,6 +95,7 @@ const GlobalStyle = createGlobalStyle`
         font-weight: 800;
         src: url(https://fonts.gstatic.com/s/nunitosans/v6/pe03MImSLYBIv1o4X1M8cc8aBc5tU1Q.ttf) format('truetype');
     }
+    
 `
 
 export default GlobalStyle;
