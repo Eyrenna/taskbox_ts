@@ -1,13 +1,11 @@
-import React from 'react'
-import { StyledInput } from '../../../styles/StyledInput';
+import { FC } from 'react'
+import { TextContainer, StyledText } from '../../../styles/StyledText';
 
 interface TextProps {
     value : string
 }
 
-export const Text  = ({value} : TextProps) => React.createElement (
-    StyledInput ,{
-        type : 'text',
-        value : value
-    }
-);
+export const Text : FC<TextProps> = ({value}) => 
+    <TextContainer>
+        <StyledText value={value}></StyledText> 
+    </TextContainer>
