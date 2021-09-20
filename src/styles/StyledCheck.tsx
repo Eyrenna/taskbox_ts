@@ -6,11 +6,12 @@ export const CheckLabel = styled.label`
   position: relative;
   vertical-align: middle;
   width: 44px;
+  cursor: pointer;
 `
 
 export const StyledCheck = styled.input.attrs({
   type : 'checkbox',
-  name : 'archived'
+  name : 'checked'
 })`
   font-size: 1em;
   visibility: hidden;
